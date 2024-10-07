@@ -11,12 +11,14 @@ const lastSlideClone = slides[totalSlides - 1].cloneNode(true);
 gallery.appendChild(firstSlideClone); // Add first clone at the end
 gallery.insertBefore(lastSlideClone, slides[0]); // Add last clone at the start
 
+// Slide position update
 function updateSlidePosition(instant = false) {
   const newTransform = -slideIndex * 100;
   gallery.style.transition = instant ? "none" : "transform 0.4s ease-in-out";
   gallery.style.transform = `translateX(${newTransform}%)`;
 }
 
+// Next slide
 function nextSlide() {
   if (isTransitioning) return;
   isTransitioning = true;
@@ -26,14 +28,14 @@ function nextSlide() {
 
   setTimeout(() => {
     if (slideIndex === totalSlides + 1) {
-      // Jump back to the real first slide without transition
       slideIndex = 1;
-      updateSlidePosition(true); // Instantly move without transition
+      updateSlidePosition(true);
     }
     isTransitioning = false;
   }, 400);
 }
 
+// Previous slide
 function prevSlide() {
   if (isTransitioning) return;
   isTransitioning = true;
@@ -43,19 +45,20 @@ function prevSlide() {
 
   setTimeout(() => {
     if (slideIndex === 0) {
-      // Jump to the real last slide without transition
       slideIndex = totalSlides;
-      updateSlidePosition(true); // Instantly move without transition
+      updateSlidePosition(true);
     }
     isTransitioning = false;
   }, 400);
 }
 
+// Restart interval after manual navigation
 function restartSlideInterval() {
   clearInterval(slideInterval);
   slideInterval = setInterval(nextSlide, 3000);
 }
 
+// Navigation buttons
 document.querySelector(".prev").addEventListener("click", () => {
   prevSlide();
   restartSlideInterval();
