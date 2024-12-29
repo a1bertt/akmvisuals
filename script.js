@@ -55,7 +55,7 @@ function prevSlide() {
 // Restart interval after manual navigation
 function restartSlideInterval() {
   clearInterval(slideInterval);
-  slideInterval = setInterval(nextSlide, 7000); // Adjusted to 7000 ms (7 seconds)
+  slideInterval = setInterval(nextSlide, 5000); // Adjusted to 5000 ms (5 seconds)
 }
 
 // Navigation buttons
