@@ -2,7 +2,7 @@ let slideIndex = 1; // Start at 1 since we're duplicating the first and last ima
 const slides = document.querySelectorAll(".carousel-image");
 const totalSlides = slides.length;
 let isTransitioning = false;
-let slideInterval = setInterval(nextSlide, 7000);
+let slideInterval = setInterval(nextSlide, 5000);
 
 // Clone the first and last slides for seamless transition
 const gallery = document.querySelector(".gallery");
