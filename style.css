@@ -15,7 +15,7 @@ body {
   min-height: 100vh;
   background-color: #f6eff6;
   color: #333;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 header {
