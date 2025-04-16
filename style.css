@@ -10,25 +10,23 @@ body {
     font-family: 'Vonique';
     display: flex;
     flex-direction: column;
-    justify-content:center;
+    justify-content:flex-start;
     align-items: center;
-    /* height: 100vh; */
     min-height: 100vh;
-    /* background-color: #f6eff6; */
     background-color: #f6eff6;
     color: #333;
+    overflow: hidden;
 }
 
 header {
+    flex: 0 0 auto;
+    height: 60px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    width: 100%;
-    /* background-color: #fdf3fd; */
-    /* background-color: #f7eef7; */
     background-color: #f6eff6;
-    /* border-bottom: 1px solid #ddd;  */
 }
 
 header h1 {
@@ -56,13 +54,15 @@ header nav a {
 /*############################*/
 /*##### Carousel Styles ######*/
 .carousel-container {
+    flex: 1 1 auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex: 1 1 auto;
     width: 100vw;
-    height: 100vh;
     overflow: hidden;
     position: relative;
+    height: calc(100vh - 60px - 40px);
 }
 
 /* Gallery & images */
@@ -82,15 +82,16 @@ header nav a {
 
 /* Controls for the carousel */
 .controls {
-    opacity: 0;
-    transition: opacity 0.3s;
     position: absolute;
-    top: 50%;
+    bottom: 20px;
+    top: auto;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    transform: translateY(-50%);
+    padding: 0 20px;
     z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
 /* Show controls on hover */
@@ -103,8 +104,8 @@ header nav a {
     color: white;
     border: none;
     padding: 10px;
-    position: absolute;
     cursor: pointer;
+    font-size: 24px;
 }
 
 button {
@@ -131,6 +132,7 @@ button:hover {
 /*############################*/
 /*######## Info Page #########*/
 .info-section {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -162,11 +164,6 @@ button:hover {
     font-weight: bold;
 }
 
-/* #info p {
-    max-width: 600px;
-    margin: 0 auto 10px;
-} */
-
 .info-image {
     width:  50%;
 }
@@ -188,11 +185,20 @@ a:hover {
     text-decoration: underline;
 }
 
-footer {
+/* footer {
     margin-top: 20px;
     padding: 10px;
     text-align: center;
+} */
+
+footer {
+    flex-shrink: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: #f6eff6;
 }
+
 
 /* Responsive Styles */
 @media (max-width: 768px) {
@@ -217,4 +223,11 @@ footer {
     .info-image{
         margin-top: 20px;
     }
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
 }
